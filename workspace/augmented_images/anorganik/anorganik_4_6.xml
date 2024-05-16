@@ -1,0 +1,26 @@
+<annotation>
+	<folder>anorganik</folder>
+	<filename>anorganik_4.jpg</filename>
+	<path>D:\Kuliah\D4 - PENS\Proyek Akhir\Project\Program\Garbage\workspace\images\anorganik\anorganik_4.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>480</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>anorganik</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>132.89062499999997</xmin>
+			<ymin>70.72916666666667</ymin>
+			<xmax>242.26562499999997</xmax>
+			<ymax>264.6875</ymax>
+		</bndbox>
+	</object>
+</annotation>

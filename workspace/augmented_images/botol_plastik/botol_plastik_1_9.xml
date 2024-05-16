@@ -1,0 +1,26 @@
+<annotation>
+	<folder>botol_plastik</folder>
+	<filename>botol_plastik_1.jpg</filename>
+	<path>D:\Kuliah\D4 - PENS\Proyek Akhir\Project\Program\Garbage\workspace\images\botol_plastik\botol_plastik_1.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>360</width>
+		<height>480</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>botol_kaca</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>51.52777777777778</xmin>
+			<ymin>47.39583333333332</ymin>
+			<xmax>181.80555555555557</xmax>
+			<ymax>135.62499999999997</ymax>
+		</bndbox>
+	</object>
+</annotation>
