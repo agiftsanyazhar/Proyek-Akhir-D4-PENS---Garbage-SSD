@@ -1,0 +1,14 @@
+item {
+    id: 1
+    name: 'anorganik'
+}
+
+item {
+    id: 2
+    name: 'botol_kaca'
+}
+
+item {
+    id: 3
+    name: 'botol_plastik'
+}
