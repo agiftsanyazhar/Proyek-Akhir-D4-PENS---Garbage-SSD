@@ -1,31 +1,19 @@
-"""
-Usage:
-  # From tensorflow/models/
-  # Create train data:
-  python generate_tfrecord.py --csv_input=data/train.csv  --output_path=data/train.record
-
-  # Create test data:
-  python generate_tfrecord.py --csv_input=data/test.csv  --output_path=data/test.record
-"""
-
-from __future__ import division
-from __future__ import print_function
-from __future__ import absolute_import
+from __future__ import division, print_function, absolute_import
 
 import os
 import io
 import pandas as pd
 import tensorflow as tf
-import argparse
 
 from PIL import Image
 from object_detection.utils import dataset_util
 from collections import namedtuple, OrderedDict
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--csv_input", type=str, help="Path to the CSV input")
-parser.add_argument("--output_path", type=str, help="Path to the TFRecord output")
-args = parser.parse_args()
+# Define flags for command line arguments
+flags = tf.compat.v1.app.flags
+flags.DEFINE_string("csv_input", "", "Path to the CSV input")
+flags.DEFINE_string("output_path", "", "Path to output TFRecord")
+FLAGS = flags.FLAGS
 
 
 def class_text_to_int(row_label):
@@ -97,19 +85,19 @@ def create_tf_example(group, path):
     return tf_example
 
 
-def main(args):
-    writer = tf.io.TFRecordWriter(args.output_path)
-    path = os.path.join("workspace/augmented_images")
-    examples = pd.read_csv(args.csv_input)
+def main(_):
+    writer = tf.io.TFRecordWriter(FLAGS.output_path)
+    path = os.path.join(os.getcwd(), "workspace/augmented_images/all")
+    examples = pd.read_csv(FLAGS.csv_input)
     grouped = split(examples, "filename")
     for group in grouped:
         tf_example = create_tf_example(group, path)
         writer.write(tf_example.SerializeToString())
 
     writer.close()
-    output_path = os.path.join(os.getcwd(), args.output_path)
+    output_path = os.path.join(os.getcwd(), FLAGS.output_path)
     print("Successfully created the TFRecords: {}".format(output_path))
 
 
 if __name__ == "__main__":
-    main(args)
+    tf.compat.v1.app.run()
